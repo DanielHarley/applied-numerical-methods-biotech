@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtualenvs
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Tests / builds
+.pytest_cache/
+dist/
+build/
+
+# Data outputs
+data/outputs/
