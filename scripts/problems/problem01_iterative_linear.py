@@ -25,19 +25,20 @@ def main() -> None:
     # initial guess (from the exercise)
     initial_guess = np.array([2.0, 1.0, 0.0], dtype=float)
 
+    tolerance = 1e-2
+
     # Solve using Gauss–Seidel with criterion C and tolerance 1e-2 (0.01)
     report = gauss_seidel(
         matrix=matrix,
         right_hand_side=right_hand_side,
         initial_guess=initial_guess,
-        tolerance=1e-2,
+        tolerance=tolerance,
         max_iterations=10_000,
         stopping_criterion="C",
     )
 
-    # Print a compact summary
-    # np.set_printoptions(formatter={'float_kind': "{:.1f}".format}) # type: ignore[arg-type]
-    print("Gauss–Seidel result for Problem 1 (exercise list) | Criterion C, ε=0.01:")
+    print()
+    print("Exercise 1 - Gauss-Seidel Method")
     print("Coefficient matrix (A):")
     print("A =\n", matrix)
     print()
@@ -46,6 +47,8 @@ def main() -> None:
     print()
     print("Initial guess:")
     print("x\u207D\u2070\u207E =", initial_guess)
+    print()
+    print(f"Stopping rule: Criterion C max[(|xi^(k) − xi^(k−1) / xi^(k)| < ε)] with ε = {tolerance:g}")
     print()
     for iteration, solution, absolute_error, relative_error, residual_inf in report.history:
         print(f"Iteration: {iteration}")
